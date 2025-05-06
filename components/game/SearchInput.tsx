@@ -116,13 +116,6 @@ export function SearchInput({ items, version, onSubmit, onSkip }: SearchInputPro
                   <X className="h-4 w-4" />
                 </Button>
               )}
-              <Button
-                type="submit"
-                size="icon"
-                className="ml-2 bg-purple-700 hover:bg-purple-600 transition-colors duration-300 shadow-md hover:shadow-[0_0_10px_rgba(124,58,237,0.3)]"
-              >
-                <ArrowRight className="h-4 w-4" />
-              </Button>
             </div>
 
             {showDropdown && filteredItems.length > 0 && (

@@ -14,32 +14,27 @@ export function useTimer({ initialTime, onTimeout, isActive }: UseTimerProps) {
   const onTimeoutRef = useRef(onTimeout)
   const initialTimeRef = useRef(initialTime)
 
-  // Update the ref when onTimeout changes
   useEffect(() => {
     onTimeoutRef.current = onTimeout
   }, [onTimeout])
 
-  // Update initialTimeRef when initialTime changes
   useEffect(() => {
     initialTimeRef.current = initialTime
-    // Reset the timer when initialTime changes
     setTimeLeft(initialTime)
   }, [initialTime])
 
-  // Reset timer to initial value
   const resetTimer = useCallback(() => {
     setTimeLeft(initialTimeRef.current)
   }, [])
 
-  // Timer effect
   useEffect(() => {
     if (isActive && timeLeft > 0) {
       timerRef.current = setTimeout(() => {
         setTimeLeft((prev) => {
-          const newTime = Math.max(0, prev - 100) // Decrease by 100ms for smoother updates
+          const newTime = Math.max(0, prev - 10) // Decrease by 10ms
           return newTime
         })
-      }, 100) // Update every 100ms for smoother countdown
+      }, 1) // Update every 10ms
     } else if (timeLeft <= 0 && isActive) {
       onTimeoutRef.current()
     }

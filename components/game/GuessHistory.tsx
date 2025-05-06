@@ -18,9 +18,9 @@ export function GuessHistory({ guessHistory, version }: GuessHistoryProps) {
         <CardDescription className="text-zinc-400">Your recent guesses</CardDescription>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[300px]">
+        <ScrollArea className="h-[400px]">
           {guessHistory.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-2">
               {guessHistory.map((record, index) => (
                 <div
                   key={index}
